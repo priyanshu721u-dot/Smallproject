@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="/css/login.css" />
+</head>
+
+<body>
+    <div id="log-Modal">
+        <div class="left-side">
+            <video autoplay muted loop playsinline>
+                <source src="/Assets/img/ab.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div class="right-side">
+            <div id="Modal-content" class="form">
+                <span class="close-btn" id="closebtn">&times;</span>
+                <h1>
+                    Log In
+                </h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label id="userLabel" for="username">Enter yor username</label>
+                        <input type="text" id="username" placeholder="Enter Student ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter Password" required>
+                    </div>
+                    <p id="errorMessage" class="error"></p>
+                    <p id="SMessage" class="Success"></p>
+                    <button type="submit" class="btn" id="submitBtn">Login</button>
+                </form>
+                <div id="signup-con">
+                    <p>Didn't sign up ?</p>
+                    <a href="signup.html"> SignUp here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/loginPage.js"></script>
+</body>
+
+
+</html>

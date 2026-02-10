@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Website</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main navbar container */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;  /* Logo left, links right */
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;  /* Stays at top when scrolling */
+    top: 0;
+    z-index: 1000;
+}
+
+/* ========== LEFT SIDE: LOGO ========== */
+.navbar-logo a {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.navbar-logo a:hover {
+    color: #ffd700;  /* Gold color on hover */
+}
+
+/* ========== RIGHT SIDE: NAVIGATION LINKS ========== */
+.navbar-links {
+    display: flex;
+    gap: 30px;  /* Space between links */
+    align-items: center;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Regular links (like About) */
+.navbar-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ========== BUTTON STYLES (Login & Sign Up) ========== */
+.nav-btn {
+    padding: 10px 25px !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+}
+
+/* Login button */
+.login-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+}
+
+.login-btn:hover {
+    background: white;
+    color: #3d60ff;
+}
+
+/* Sign Up button */
+.signup-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+}
+
+.signup-btn:hover {
+    background: white;
+    color: #3d60ff;
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* ========== MOBILE MENU TOGGLE (Hamburger) ========== */
+.navbar-toggle {
+    display: none;  /* Hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+/* ========== RESPONSIVE DESIGN (Mobile) ========== */
+@media (max-width: 768px) {
+    /* Reduce padding on mobile */
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    /* Show hamburger menu */
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    /* Hide navigation links by default */
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        gap: 15px;
+        display: none;  /* Hidden by default */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Show navigation when active */
+    .navbar-links.active {
+        display: flex;
+    }
+    
+    /* Make links full width on mobile */
+    .navbar-links a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+    
+    /* Hamburger animation when active */
+    .navbar-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .navbar-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .navbar-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+</style>
+<body>
+    <!-- ⭐ NAVBAR START ⭐ -->
+    <nav class="navbar">
+        <!-- Left side: Logo -->
+        <div class="navbar-logo">
+            <a href="index.html">Practice</a>
+        </div>
+        
+        <!-- Right side: Navigation links -->
+        <div class="navbar-links">
+            <a href="#about">About</a>
+            <a href="pages/login.html" class="nav-btn login-btn">Login</a>
+            <a href="pages/signup.html" class="nav-btn signup-btn">Sign Up</a>
+        </div>
+        
+        <!-- Mobile menu toggle (hamburger icon) -->
+        <div class="navbar-toggle" id="navbarToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- ⭐ NAVBAR END ⭐ -->
+    
+    <!-- Your page content goes here -->
+   
+    <script>
+        // ============================================
+// NAVBAR MOBILE MENU TOGGLE
+// ============================================
+
+// Get the toggle button (hamburger icon)
+const navbarToggle = document.getElementById('navbarToggle');
+
+// Get the navigation links container
+const navbarLinks = document.querySelector('.navbar-links');
+
+// Check if elements exist
+if (navbarToggle && navbarLinks) {
+    // Add click event listener to hamburger icon
+    navbarToggle.addEventListener('click', function() {
+        // Toggle 'active' class on both elements
+        // This shows/hides the menu and animates the hamburger
+        navbarLinks.classList.toggle('active');
+        navbarToggle.classList.toggle('active');
+    });
+}
+    </script>
+  
+</body>
+</html>
